@@ -1,0 +1,71 @@
+.nav-link{
+  margin-left: 30px;
+  font-size: 24px;
+  font-family: "Gamja Flower";
+  font-weight: bolder;
+  overflow: hidden;
+  span {
+    position: relative;
+    display: inline-block;
+    transition: transform 0.35s;
+
+    &::before {
+      content: attr(data-hover);
+      position: absolute;
+    }
+
+    &:nth-child(odd)::before {
+      top: 105%;
+      color: #fe4f60;
+    }
+
+    &:nth-child(even)::before {
+      bottom: 105%;
+      color: #80c7fd;
+    }
+  }
+
+  &:hover {
+    span {
+      &:nth-child(1) {
+        transform: translate(0, -105%);
+        transition: transform 0.2s;
+      }
+
+      &:nth-child(2) {
+        transform: translate(0, 107%);
+        transition: transform 0.3s;
+      }
+
+      &:nth-child(3) {
+        transform: translate(0, -105%);
+        transition: transform 0.4s;
+      }
+
+      &:nth-child(4) {
+        transform: translate(0, 107%);
+        transition: transform 0.5s;
+      }
+
+      &:nth-child(5) {
+        transform: translate(0, -105%);
+        transition: transform 0.6s;
+      }
+
+      &:nth-child(6) {
+        transform: translate(0, 107%);
+        transition: transform 0.7s;
+      }
+    }
+  }
+  .active {
+    span {
+      &:nth-child(odd) {
+        transform: translate(0, -105%);
+      }
+      &:nth-child(even) {
+        transform: translate(0, 107%);
+      }
+    }
+  }
+}
