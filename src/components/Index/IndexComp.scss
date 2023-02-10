@@ -1,0 +1,124 @@
+// 버튼색상 선언
+// Sass에서는 $로 변수를 정의한다
+$blue: #80c7fd;
+$red: #fe4f60;
+$orange: #ffb251;
+$green: #5bdb60;
+$mint: #4debbb;
+
+// @mixin은
+// @mixin 믹스인이름 ($매개변수1, $매개변수2, $매개변수3) {
+//   속성1: 매개변수1가 포함된 값;
+//   속성2: 매개변수2가 포함된 값;
+//   속성3: 매개변수3가 포함된 값;
+// }
+// 과 같이 사용할 수 있다.
+@mixin button($color) {
+  background-color: $color;
+  &:hover {
+    // hover상태일 시 연하게
+    background-color: lighten($color, 10%);
+    transition: background-color, 0.3s;
+    }
+}
+
+// 버튼애니메이션
+@mixin buttonanime($type) {
+  // 클릭했을때 생성되는 ripple애니메이션이 씌워질 span태그에 대한 css
+  & .ripple-span {
+    background-color: if($type == 'icon' or $type == 'white', #000, #fff);
+    position: absolute;
+    // 요소를 좌상단에서부터 50%씩 이동하여 재배치
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    // linear로 애니메이션 점진적 진행
+    animation: buttonanime 0.5s linear;
+    // 애니메이션 원 비율
+    aspect-ratio: 1 / 1;
+  }
+
+  // keyframes으로 애니메이션 진행과정 설정
+  @keyframes buttonanime {
+    0% {
+      width: 0;
+      opacity: 0.5;
+    }
+    100% {
+      width: 400%;
+      opacity: 0;
+    }
+  }
+}
+
+// 버튼 기본 css
+.button {
+  border: none;
+  padding: 1rem 1.5rem;
+  border-radius: 7px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: white;
+  margin: 0.5rem;
+  box-sizing: border-box;
+  position: relative;
+  overflow: hidden;
+  transition: background-color, 0.3s;
+  @include button($blue);
+  &.red {
+    @include button($red);
+  }
+  &.green {
+    @include button($green);
+  }
+  &.orange {
+    @include button($orange);
+  }
+  &.mint {
+    @include button($mint);
+  }
+
+  // 아이콘 버전
+  &.icon {
+    color: inherit;
+    background-color: transparent;
+    padding: 0.5rem;
+    border-radius: 50%;
+    height: inherit;
+    box-shadow: none;
+    aspect-ratio: 1 / 1;
+
+    &:hover {
+      background-color: darken(white, 10%);
+      transition: background-color, 0.3s;
+    }
+
+    @include buttonanime('icon');
+  }
+
+  // display block
+  &.block {
+    display: flex;
+  }
+
+  // 타일 - 끝이 뾰족하게
+  &.tile {
+    border-radius: 0;
+  }
+
+  // 화이트 버전
+  &.white {
+    background-color: white;
+    color: $blue;
+
+    &:hover {
+      background-color: darken(white, 10%);
+      transition: background-color, 0.3s;
+    }
+
+    @include buttonanime('white');
+  }
+
+  @include buttonanime('');
+}

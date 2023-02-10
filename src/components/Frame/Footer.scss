@@ -23,4 +23,19 @@
     justify-self: flex-start;
     font-size: smaller;
   }
+  .goTop {
+    position: fixed;
+    right: 8px;
+    bottom: -100%;
+    z-index: 10;
+    transition: bottom 0.3s;
+
+    // scss에서는 같은 태그에 몇가지 속성만 다를경우,
+    // &으로 나누어 스타일을 줄 수 있다.
+    // 기존 goTop클래스에 active 클래스가 활성 되었을때의 스타일.
+    &.active {
+      bottom: 8px;
+      transition: bottom 0.3s;
+    }
+  }
 }
