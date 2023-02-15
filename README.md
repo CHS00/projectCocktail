@@ -12,7 +12,7 @@
 
 ### `제작동기`
 
-평소 취미로 칵테일을 주조하였기 때문에 보기 쉬운 칵테일 홈페이지를 만들고자 하였습니다.
+평소 취미로 칵테일을 조주하였기 때문에 보기 쉬운 칵테일 홈페이지를 만들고자 하였습니다.
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 

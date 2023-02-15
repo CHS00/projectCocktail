@@ -30,7 +30,7 @@ const Header = () => {
       <Navbar bg="white" variant="white">
         <Container>
           <Nav className="me-auto navbar">
-            <Link to="/">
+            <Link to="/" className='logo'>
               <img src={logo} alt="" style={{width:"100px"}}/>
             </Link>
             {

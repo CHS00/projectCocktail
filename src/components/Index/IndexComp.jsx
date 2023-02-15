@@ -2,6 +2,11 @@ import React, { useEffect, useState } from "react"
 import './IndexComp.scss'
 import classNames from 'classnames'
 
+import Slider from "react-slick"
+import 'slick-carousel/slick/slick.css'
+import 'slick-carousel/slick/slick-theme.css'
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCaretRight,faCaretLeft } from '@fortawesome/free-solid-svg-icons'
 
 export const ButtonComp = (props) => {
   const { children, size, icon, style, block, tile, color, onClick } = props
@@ -75,7 +80,6 @@ export const ButtonComp = (props) => {
       onClick={(e) => {
         clickAnimation(e)
         onClick(e)
-        console.log(ripples);
       }}
     >
       <span>{children}</span>
@@ -88,3 +92,71 @@ export const ButtonComp = (props) => {
 ButtonComp.defaultProps = {
   onClick: function () {},
 }
+
+
+// 슬라이더
+export const SliderComp = ({
+  dots,
+  infinite,
+  speed,
+  slidesToShow,
+  slidesToScroll,
+  arrows,
+  autoplay,
+  children,
+}) => {
+
+  //화살표
+  // https://bum-developer.tistory.com/entry/NPM-react-slick 참고
+  const NextArrow = ({ onClick }) => {
+    return (
+      <div
+        className="customarrow arrow-next"
+        onClick={onClick}
+      >
+        <FontAwesomeIcon icon={faCaretRight} size="3x" />
+      </div>
+    )
+  }
+
+  const PrevArrow = ({ onClick }) => {
+    return (
+      <div
+        className="customarrow arrow-prev"
+        onClick={onClick}
+      >
+        <FontAwesomeIcon icon={faCaretLeft} size="3x" />
+      </div>
+    )
+  }
+
+  const settings = {
+    dots: dots,
+    infinite: infinite,
+    speed: speed,
+    slidesToShow: slidesToShow,
+    slidesToScroll: slidesToScroll,
+    arrows: arrows,
+    autoplay: autoplay,
+    nextArrow: <NextArrow />,
+    prevArrow: <PrevArrow />,
+  }
+
+  return (
+    <div style={{width : '100%'}}>
+      <Slider {...settings}>{children}</Slider>
+    </div>
+  )
+}
+
+//기본 설정
+SliderComp.defaultProps = {
+  dots: true,
+  infinite: false,
+  speed: 500,
+  slidesToShow: 1,
+  slidesToScroll: 1,
+  arrows: true,
+  autoplay: false,
+}
+
