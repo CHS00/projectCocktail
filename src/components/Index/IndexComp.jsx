@@ -160,3 +160,35 @@ SliderComp.defaultProps = {
   autoplay: false,
 }
 
+
+// 드롭다운
+export const DropdownComp = (props) => {
+  
+  const {children,dropdown} = props
+
+  const [dropdownAnimation,setDropdownAnimation] = useState(false);
+  // const [repeat, setRepeat] = useState(null);
+
+  useEffect(()=>{
+    if (dropdown) {
+      // clearTimeout(repeat);
+      // setRepeat(null);
+      setDropdownAnimation(true);
+    }else{
+      // setRepeat(setTimeout(()=>{
+      //   setDropdownAnimation(false);
+      // },400))
+      setTimeout(()=>{
+        setDropdownAnimation(false);
+      },400)
+    };
+    return 
+  },[dropdown]);
+
+
+  return(
+    <div className={dropdown?"slide-fade-in-dropdown":"slide-fade-out-dropdown"}>
+      {dropdownAnimation && children}
+    </div>
+  )
+}

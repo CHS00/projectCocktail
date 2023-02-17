@@ -63,8 +63,7 @@ const Home = () => {
                 <div className='itemInfo'>
                   <h4>{item.name}</h4>
                   <p>도수: {item.alc} <br />
-                  용량: {item.amount}ml <br />
-                  가격: {item.price}</p>
+                  용량: {item.amount}ml</p>
                   <p>{item.info}</p>
                 </div>
               </div>
@@ -78,7 +77,7 @@ const Home = () => {
           onClick={() => {
             navigate('/search')
           }}>
-            더 보기
+            더 알아보기
           </ButtonComp>:
           <ButtonComp
           color="blue"
