@@ -1,0 +1,47 @@
+.recipe-comp{
+  margin: auto 150px;
+}
+
+.recipe-text{
+  padding: 30px;
+  margin-top: 30px;
+}
+
+.thumb{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  .thumb-div{
+    border: 2px solid #CCCCCC;
+    border-radius: 5px;
+    width: 60%;
+    margin : 5px; 
+    .thumb-div-div{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      padding: 10px;
+      .thumb-img{
+        width: 50px;
+        position: absolute;
+        left: 10%;
+      }
+      .thumb-text{
+        .thumb-name{
+          font-weight: bolder;
+        }
+      }
+      .thumb-x{
+        cursor: pointer;
+        user-select: none;
+        border: #999999 solid 1px;
+        padding: 0 8px;
+        border-radius: 0;
+        position: absolute;
+        right: 20px;
+        top: 20px;
+      }
+    }
+  }
+}

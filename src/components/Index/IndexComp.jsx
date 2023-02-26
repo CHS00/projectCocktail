@@ -167,20 +167,18 @@ export const DropdownComp = (props) => {
   const {children,dropdown} = props
 
   const [dropdownAnimation,setDropdownAnimation] = useState(false);
-  // const [repeat, setRepeat] = useState(null);
+  // repeat으로 드롭다운을 여러번 빠르게 눌렀을때 생기는 버그 제거
+  const [repeat, setRepeat] = useState(null);
 
   useEffect(()=>{
     if (dropdown) {
-      // clearTimeout(repeat);
-      // setRepeat(null);
+      clearTimeout(repeat);
+      setRepeat(null);
       setDropdownAnimation(true);
     }else{
-      // setRepeat(setTimeout(()=>{
-      //   setDropdownAnimation(false);
-      // },400))
-      setTimeout(()=>{
+      setRepeat(setTimeout(()=>{
         setDropdownAnimation(false);
-      },400)
+      },400))
     };
     return 
   },[dropdown]);

@@ -5,11 +5,12 @@ import "./Search.scss";
 
 import item from '../../item/item';
 import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+
+import { addArr } from '../../store.js';
 
 
-const Search = (props) => {
-
-  const { setSelected } = props
+const Search = () => {
 
   const [dropdown,setDropdown] = useState(false);
 
@@ -22,6 +23,9 @@ const Search = (props) => {
   const [selectedAlc,setSelectedAlc] = useState("non")
 
   const navigate = useNavigate();
+
+  // redux
+  const dispatch = useDispatch()
 
   useEffect(()=>{
     let alcFilter1 = [...item].filter((data)=>{
@@ -56,6 +60,7 @@ const Search = (props) => {
               <li onClick={()=>{setType("모든 종류"); setDropdown(false);}}>모든 종류</li>
               <li onClick={()=>{setType("보드카"); setDropdown(false);}}>보드카</li>
               <li onClick={()=>{setType("럼"); setDropdown(false);}}>럼</li>
+              <li onClick={()=>{setType("위스키"); setDropdown(false);}}>위스키</li>
               <li onClick={()=>{setType("진"); setDropdown(false);}}>진</li>
               <li onClick={()=>{setType("리큐르"); setDropdown(false);}}>리큐르</li>
               <li onClick={()=>{setType("그 외"); setDropdown(false);}}>그 외</li>
@@ -92,6 +97,8 @@ const Search = (props) => {
                 className='list-pic'
                 onClick={()=>{
                   setSelectedAlc(a);
+                  // 클릭 시, 스크롤 아래로
+                  window.scrollTo({ top: document.body.scrollHeight });
                 }}/>
             )
           })
@@ -118,7 +125,7 @@ const Search = (props) => {
                   width:"250px", height:"50px", position:"absolute", right:"0", bottom:"0"}}
                 onClick={() => {
                   // 선택한 재료를 레시피에 자동으로 추가하여 레시피페이지로
-                  setSelected(selectedAlc);
+                  dispatch(addArr(selectedAlc))
                   navigate('/recipe');
                 }}>이 재료로 칵테일 만들기</ButtonComp>
               </div>

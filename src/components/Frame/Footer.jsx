@@ -73,7 +73,8 @@ const Footer = () => {
         </p>
       </div>
       {/* activeBtn이 true일 경우 active class 스타일적용 */}
-      <a href="#" className={classNames("goTop", activeBtn && "active")}>
+      <a href="#!" className={classNames("goTop", activeBtn && "active")}>
+      {/* 개발완료 후, a href="#!"는 #로 수정 */}
         <ButtonComp color="mint">
           <FontAwesomeIcon icon={faArrowUp} size="2x" />
         </ButtonComp>
