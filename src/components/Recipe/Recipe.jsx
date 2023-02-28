@@ -18,22 +18,23 @@ const Recipe = () => {
 
   //리스트 추가
   const [pickedRecipe,setPickedRecipe] = useState([...recipe]);
-  
+
+  const [pickedArrArr,setpickedArrArr] = useState([...pickedArr])
+
   useEffect(()=>{
     // 필터가 필요한 임의의 배열 생성
     const disArr = [];
-    for (let i = 0; i < pickedArr.length; i++) {
-      if (pickedArr[i].type!=="리큐르" && pickedArr[i].type!=="그 외") {
-        disArr.push(pickedArr[i].type);
+    for (let i = 0; i < pickedArrArr.length; i++) {
+      if (pickedArrArr[i].type!=="리큐르" && pickedArrArr[i].type!=="그 외") {
+        disArr.push(pickedArrArr[i].type);
       } else{
-        disArr.push(pickedArr[i].name);
+        disArr.push(pickedArrArr[i].name);
       }
     }
     // 임의배열의 중복 제거
     const set = new Set(disArr);
     // disArr1 = 목록에 추가된 술 배열
     const disArr1 = [...set];
-    console.log(disArr1);
     
     // disArr2 = setPickedRecipe에 넣어줄 배열
     const disArr2 = []
@@ -44,9 +45,9 @@ const Recipe = () => {
         disArr2.push(pickedRecipe[i])
       }
     }
-    console.log(disArr2);
     setPickedRecipe(disArr2);
-  },[pickedArr])
+    
+  },[pickedArrArr])
 
   return (
     <div className='recipe-comp'>
@@ -54,7 +55,7 @@ const Recipe = () => {
 
       <div className='thumb'>
         {
-          pickedArr.map((a,i)=>{
+          pickedArrArr.map((a,i)=>{
             return (
               <div key={i} className="thumb-div">
                 <div className='thumb-div-div'>
@@ -68,7 +69,9 @@ const Recipe = () => {
                   </div>
                   <div className='thumb-x' onClick={()=>{
                     dispatch(deleteArr(a.id));
-                    console.log(pickedArr);
+                    let num = pickedArrArr.findIndex((value)=>value.id===a.id);
+                    pickedArrArr.splice(num,1);
+                    setpickedArrArr(pickedArrArr)
                   }}>X</div>
                 </div>
               </div>
