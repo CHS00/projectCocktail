@@ -15,14 +15,14 @@ const Header = () => {
       name: "칵테일레시피",
       path: "/recipe",
     },
-    {
-      name: "제작",
-      path: "/making",
-    },
-    {
-      name: "정보",
-      path: "/info",
-    },
+    // {
+    //   name: "제작",
+    //   path: "/making",
+    // },
+    // {
+    //   name: "정보",
+    //   path: "/info",
+    // },
   ];
 
   return (

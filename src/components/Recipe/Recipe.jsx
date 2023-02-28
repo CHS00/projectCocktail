@@ -84,11 +84,18 @@ const Recipe = () => {
         사용할 재료 추가</ButtonComp>
       </div>
 
-      <div>
+      <div className='recipe-div'>
         {
           pickedRecipe.map((a,i)=>{
             return(
-              <div key={i}>{a.name}</div>
+              <div key={i} className="recipe-div-div">
+                <img className='recipe-img' src={require(`../../cocktail/img/${a.id}.png`)} alt="" />
+                <div className='recipe-info'>
+                  <h3>{a.name}</h3>
+                  <p>{a.recipe}</p>
+                  <p>{a.info}</p>
+                </div>
+              </div>
             )
           })
         }
