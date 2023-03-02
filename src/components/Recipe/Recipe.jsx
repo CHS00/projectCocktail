@@ -35,7 +35,7 @@ const Recipe = () => {
     const set = new Set(disArr);
     // disArr1 = 목록에 추가된 술 배열
     const disArr1 = [...set];
-    
+
     // disArr2 = setPickedRecipe에 넣어줄 배열
     const disArr2 = []
     for (let i = 0; i < pickedRecipe.length; i++) {
@@ -45,8 +45,7 @@ const Recipe = () => {
         disArr2.push(pickedRecipe[i])
       }
     }
-    setPickedRecipe(disArr2);
-    
+    setPickedRecipe([...disArr2]);
   },[pickedArrArr])
 
   return (
@@ -68,10 +67,11 @@ const Recipe = () => {
                     </p>
                   </div>
                   <div className='thumb-x' onClick={()=>{
+                    setPickedRecipe([...recipe]);
                     dispatch(deleteArr(a.id));
                     let num = pickedArrArr.findIndex((value)=>value.id===a.id);
                     pickedArrArr.splice(num,1);
-                    setpickedArrArr(pickedArrArr)
+                    setpickedArrArr([...pickedArrArr])
                   }}>X</div>
                 </div>
               </div>

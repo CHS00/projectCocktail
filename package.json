@@ -1,6 +1,7 @@
 {
   "name": "cocktail",
   "version": "0.1.0",
+  "homepage": "https://chs00.github.io/cocktail-project-build/",
   "private": true,
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.3.0",
