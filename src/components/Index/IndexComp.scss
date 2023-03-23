@@ -149,3 +149,71 @@ $mint: #4debbb;
   left: 5px;
   z-index: 999;
 }
+
+//모달
+.opened_modal {
+  width: 90%;
+  max-width: 1200px;
+
+  .modal-body {
+    display: flex;
+    padding: 0;
+
+    .img_block {
+      width: 50%;
+      background-color: black;
+      display: flex;
+      align-items: center;
+      
+      img {
+        width: 100%;
+        background-color: white;
+      }
+    }
+
+    .content_block {
+      width: 50%;
+      aspect-ratio: 1/1;
+      overflow: auto;
+      padding: 1rem;
+    }
+
+    .noimg_content_block {
+      width: 100%;
+      min-height: 400px;
+    }
+  }
+
+  .bigimage {
+    .img_block {
+      width: 65%;
+    }
+
+    .content_block {
+      width: 35%;
+      aspect-ratio: auto;
+    }
+
+    .bigimage_close {
+      position: absolute;
+      right: 0;
+      top: 0;
+      button {
+        span {
+          color: grey;
+        }
+      }
+    }
+  }
+
+  .slick-track {
+    display: flex;
+    align-items: center;
+
+    div {
+      > div {
+        display: flex;
+      }
+    }
+  }
+}

@@ -7,6 +7,7 @@ import './App.scss'
 import { Routes, Route } from 'react-router-dom';
 import Search from './components/Search/Search';
 import Recipe from './components/Recipe/Recipe';
+import Custom from './components/Custom/Custom';
 
 function App() {
 
@@ -18,6 +19,7 @@ function App() {
           <Route path="/" element={<Home/>}/>
           <Route path="/search" element={<Search/>}/>
           <Route path="/recipe" element={<Recipe/>}/>
+          <Route path="/custom" element={<Custom/>}/>
         </Routes>
       </main>
       <Footer/>

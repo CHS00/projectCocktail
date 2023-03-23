@@ -1,0 +1,84 @@
+
+.address_table{
+  width: 100%;
+  .address_table_tr{
+    border-bottom: 1px solid lightgray;
+    .table_cate{
+      font-weight: bolder;
+      width: 25%;
+      padding: 0 0 0 20px;
+    }
+    
+    .address_input_name {
+      height: 40px;
+      width: 100%;
+      font-size: 15px;
+      border: 0;
+      outline: none;
+      margin: 20px 0;
+      padding: 0 0 0 10px;
+      background-color: rgb(233, 233, 233);
+    }
+
+    .address_input_phone{
+      height: 40px;
+      width: 85px;
+      font-size: 15px;
+      border: 0;
+      outline: none;
+      text-align: center;
+      margin: 20px 0;
+      background-color: rgb(233, 233, 233);
+    }
+    
+    .address_input_phone::-webkit-inner-spin-button{
+      -webkit-appearance: none;
+    }
+    
+    .phone_hy{
+      margin: 0 15px;
+    }
+  }
+  
+  .address_table_tr2{
+    height: 70px;
+  }
+}
+
+
+.address_addressnum{
+  height: 40px;
+  width: 30%;
+  font-size: 15px;
+  border: 0;
+  outline: none;
+  margin: 20px 0 10px 0;
+  background-color: rgb(233, 233, 233);
+  padding: 0 0 0 10px;
+  
+  .address_addressnum::-webkit-inner-spin-button{
+    -webkit-appearance: none;
+  }
+}
+
+.address_address{
+  height: 40px;
+  width: 70%;
+  font-size: 15px;
+  border: 0;
+  outline: none;
+  margin: 0px 10px 15px 0;
+  padding: 0 0 0 10px;
+  background-color: rgb(233, 233, 233);
+}
+
+.address_memo{
+  height: 40px;
+  width: 100%;
+  font-size: 15px;
+  border: 0;
+  outline: none;
+  margin: 20px 0;
+  background-color: rgb(233, 233, 233);
+  padding: 0 0 0 10px;
+}

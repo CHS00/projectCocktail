@@ -6,7 +6,9 @@ import Slider from "react-slick"
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCaretRight,faCaretLeft } from '@fortawesome/free-solid-svg-icons'
+import { faCaretRight,faCaretLeft,faXmark } from '@fortawesome/free-solid-svg-icons'
+
+import { Modal } from 'react-bootstrap'
 
 export const ButtonComp = (props) => {
   const { children, size, icon, style, block, tile, color, onClick } = props
@@ -188,5 +190,56 @@ export const DropdownComp = (props) => {
     <div className={dropdown?"slide-fade-in-dropdown":"slide-fade-out-dropdown"}>
       {dropdownAnimation && children}
     </div>
+  )
+}
+
+
+//모달
+export const ModalComp = ({
+  children,
+  button,
+  image,
+  className,
+  height,
+  bigimage,
+}) => {
+  const [show, setShow] = useState(false)
+  const handleClose = () => setShow(false)
+  const handleShow = () => setShow(true)
+  const cloneChild = React.cloneElement(children, { onSelect: handleClose })
+  return (
+    <>
+      {/* 모달 open 버튼 */}
+      <span onClick={handleShow}>{button}</span>
+      {/* 모달 창 내용 */}
+      <Modal
+        centered
+        dialogClassName={classNames('opened_modal', className)}
+        show={show}
+        onHide={handleClose}
+      >
+        <Modal.Body className={bigimage ? 'bigimage' : null}>
+          {image ? (
+            <>
+              <div className="img_block">{image}</div>
+              <div className="content_block">
+                {bigimage ? (
+                  <div className='bigimage_close'>
+                    <ButtonComp color='white' icon onClick={handleClose}>
+                      <FontAwesomeIcon icon={faXmark} size='2x' />
+                    </ButtonComp>
+                  </div>
+                ) : null}
+                {children}
+              </div>
+            </>
+          ) : (
+            <div className="noimg_content_block" style={{ height: height }}>
+              {cloneChild}
+            </div>
+          )}
+        </Modal.Body>
+      </Modal>
+    </>
   )
 }
